@@ -1,0 +1,21 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-bebas: "Bebas Neue", sans-serif; 
+}
+@layer utilities {
+  .font-bebas {
+    font-family: var(--font-bebas);
+  }
+}
+@theme {
+  --font-One: "Poiret One", sans-serif; 
+}
+@layer utilities {
+  .font-One {
+    font-family: var(--font-One);
+  }
+}
