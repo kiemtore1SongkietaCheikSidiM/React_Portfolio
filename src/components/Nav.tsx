@@ -17,7 +17,7 @@ function CloseMenu(){
 
     return (
         <>
-        <div className="flex items-center justify-between p-10 lg:flex-row">
+        <div className="sticky flex items-center justify-between p-10 lg:flex-row">
             <a className="text-white font-mono text-3xl tracking-wider flex items-center"><VscAccount />AUTOCODE</a>
             <div className="space-x-4">
                 <div className="max-sm:hidden max-md:hidden max-lg:block ">
