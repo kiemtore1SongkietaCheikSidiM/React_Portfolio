@@ -13,7 +13,7 @@ import {
 import Mohamed from './mohamed.jpg'
 
 
-export default function Header(){
+export default function Header({sidebarCollapsed,onToggleSidebar}){
     return (
         <>
         <div className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-b
@@ -22,7 +22,8 @@ export default function Header(){
                 {/*left section*/}
                 <div className="flex items-center space-x-4">
                   <button className='p-2 rounded-lg text-slate-600 dark:text-slate-300
-                  hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors'>
+                  hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors'
+                  onClick={onToggleSidebar}>
                     <Menu className='w-5 h-5'/>
                   </button>
                   <div className=' md:blok'>

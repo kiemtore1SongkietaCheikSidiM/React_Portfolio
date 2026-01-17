@@ -15,7 +15,8 @@ function App() {
             currentPage={currentPage}
             onPageChange={setcurrentPage}/>
           <div className='flex-1 flex flex-col overflow-hidden'>
-            <Header/>
+            <Header sidebarCollapsed={sidebarcollaps}
+            onToggleSidebar={() =>setSidebarcollaps(!sidebarcollaps)}/>
           </div>
         </div>
       </div>
