@@ -97,7 +97,7 @@ const menuItems = [
 
 function Sidebar({collapsed,ontoggle,currentPage,onPageChange}){
   const [expandedItems,setExpandedItems] = useState(new Set(["Analytics"]))
-  const toggle = (itemid) =>{
+  const toggleExpanded = (itemid) =>{
     const newExpanded = new Set(expandedItems)
     if(newExpanded.has(itemid)){
       newExpanded.delete(itemid)
@@ -144,7 +144,14 @@ function Sidebar({collapsed,ontoggle,currentPage,onPageChange}){
                 <div key={item.id}>
                   <button className={`w-full flex items-center justify-between p-3 rounded-xl
                     transition-all duration-200 ${currentPage === item.id || item.active ? "bg-linear-to-r from-blue-500 to-purple-600 text-white shadow-lg shadow-blue-500/25" :
-                     "text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/50"}`}>
+                     "text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/50"}`}
+                     onClick={()=>{
+                      if(item.submenu){
+                        toggleExpanded(item.id)
+                      }else{
+                        onPageChange(item.id)
+                      }
+                     }}>
                     <div className='flex items-center space-x-3'>
                       <item.icon className={`w-5 h-5`}/>
                       {/* Conditional rendering*/}
