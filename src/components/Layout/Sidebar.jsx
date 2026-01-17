@@ -1,4 +1,5 @@
 import {ChevronDown, Zap} from 'lucide-react'
+import { useState } from 'react'
 import {
   LayoutDashboard, 
   BarChart3, 
@@ -96,6 +97,16 @@ const menuItems = [
 
 function Sidebar({collapsed,ontoggle,currentPage,onPageChange}){
   const [expandedItems,setExpandedItems] = useState(new Set(["Analytics"]))
+  const toggle = (itemid) =>{
+    const newExpanded = new Set(expandedItems)
+    if(newExpanded.has(itemid)){
+      newExpanded.delete(itemid)
+    }
+  else{
+      newExpanded.add(itemid)
+  }
+  setExpandedItems(newExpanded)
+}
     return (
         <>
         <div className={`${collapsed ?"w-20": "w-70" }
