@@ -155,14 +155,13 @@ function Sidebar({collapsed,ontoggle,currentPage,onPageChange}){
                     <div className='flex items-center space-x-3'>
                       <item.icon className={`w-5 h-5`}/>
                       {/* Conditional rendering*/}
-                      <>
+                      
                         {!collapsed && (
+                          <>
                           <span className='font-medium ml-2'>
                           {item.label}
                           </span>
-                        )}
-                        
-                        {item.badge && (
+                          {item.badge && (
                         <span className='px-2 py-1 text-xs bg-red-500 text-white
                         rounded-full'>
                           {item.badge}
@@ -175,7 +174,9 @@ function Sidebar({collapsed,ontoggle,currentPage,onPageChange}){
                             {item.count}
                           </span>
                         )}
-                      </>
+                        </>
+                        )}
+                      
                     </div>
                     { !collapsed && item.submenu&& (
                         <ChevronDown className={`w-4 h-4 transition-transform`} />
