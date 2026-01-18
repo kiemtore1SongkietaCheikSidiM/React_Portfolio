@@ -10,7 +10,7 @@ const stats = [
         change: "+12.5%",
         trend: "up",
         icon: DollarSign,
-        color: "form-emerald-500 to-teal-600",
+        color: "bg-linear-65 from-purple-500 to-pink-500",
         bgColor: "bg-emerald-50 dark:bg-emerald-400",
         textColor: "text-emerald-600 dark:text-emerald-400"
     },
@@ -20,7 +20,7 @@ const stats = [
         change: "+17.5%",
         trend: "up",
         icon: User,
-        color: "form-blue-500 to-indigo-600",
+        color: "bg-linear-to-bl from-violet-500 to-fuchsia-500",
         bgColor: "bg-blue-50 dark:bg-blue-900/20",
         textColor: "text-blue-600 dark:text-blue-400"
     },
@@ -30,8 +30,8 @@ const stats = [
         change: "+2.5%",
         trend: "up",
         icon: ShoppingCart,
-        color: "form-purple-500 to-pink-600",
-        bgColor: "bg-purple-50 dark:bg-purpl-400",
+        color: "bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%",
+        bgColor: "bg-purple-50 dark:bg-purple-400",
         textColor: "text-purple-600 dark:text-purple-400"
     },
      {
@@ -40,7 +40,7 @@ const stats = [
         change: "-2.5%",
         trend: "Down",
         icon: Eye,
-        color: "form-orange-500 to-red-600",
+        color: "bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500",
         bgColor: "bg-orange-50 dark:bg-orange-400",
         textColor: "text-orange-600 dark:text-orange-400"
     }
@@ -76,15 +76,17 @@ function StatsGrids(){
                     {<stats.icon className={`w-6 h-6 ${stats.textColor}`}/> }
                 </div>
               </div>
-              {/*Progressbar*/}
+               {/*Progressbar*/}
            <div className='mt-4 h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden'>
-             <div className={`w-full bg-linear-to-r rounded-full ${stats.color}
+             <div className={`w-full rounded-full ${stats.color}
               transition-all duration-100`} 
-              style={{width: stats.trend === 'up' ? "75%": '45%'}}></div>
+              style={{width: stats.trend === 'up' ? "75%": '45%'}}
+              ></div>
            </div>
            </div>
                 )
             })}
+            
         </div>
     ) 
 }
