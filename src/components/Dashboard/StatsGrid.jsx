@@ -12,7 +12,7 @@ const stats = [
         icon: DollarSign,
         color: "bg-linear-65 from-purple-500 to-pink-500",
         bgColor: "bg-emerald-50 dark:bg-emerald-400",
-        textColor: "text-emerald-600 dark:text-emerald-400"
+        textColor: "text-emerald-600 dark:text-emerald-100"
     },
      {
         title: "Active Users",
@@ -32,7 +32,7 @@ const stats = [
         icon: ShoppingCart,
         color: "bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%",
         bgColor: "bg-purple-50 dark:bg-purple-400",
-        textColor: "text-purple-600 dark:text-purple-400"
+        textColor: "text-purple-600 dark:text-purple-100"
     },
      {
         title: "Page views",
@@ -42,7 +42,7 @@ const stats = [
         icon: Eye,
         color: "bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500",
         bgColor: "bg-orange-50 dark:bg-orange-400",
-        textColor: "text-orange-600 dark:text-orange-400"
+        textColor: "text-orange-600 dark:text-orange-100"
     }
 ]
 

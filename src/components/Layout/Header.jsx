@@ -1,4 +1,5 @@
 import React from 'react'
+import { useState,useEffect } from 'react'
 import {
     ChevronDown, 
     Menu, 
@@ -7,17 +8,37 @@ import {
     Filter,
     Plus,
     Sun,
-    Bell
+    Bell,
+    Moon
 
 } from 'lucide-react'
 import Mohamed from './mohamed.jpg'
 
 
 export default function Header({sidebarCollapsed,onToggleSidebar}){
+    // It retrieves the saved theme from localStorage (if available). If no theme is found, it defaults to 'light'. useState initializes the theme state with this value.
+    const defaultState = localStorage.getItem('theme') || 'light';
+    const [theme, setTheme] = useState(defaultState);
+    // Update Theme Using useEffect
+    useEffect(() => {
+    // Triggered every time theme changes ([theme] dependency). Saves the theme to localStorage so it persists across page reloads.
+    localStorage.setItem('theme', theme);
+    // Toggles the dark class on <html>, allowing Tailwind to apply dark mode styles.
+    document.documentElement.classList.toggle('dark', theme === 'dark');
+    }, [theme]);
+
+    // Handle Button Click to Toggle Theme
+    const handleButton = () => {
+    // Switches the theme:
+    setTheme(theme == 'light' ? 'dark' : 'light');
+   }
+
+
+
     return (
         <>
-        <div className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-b
-        border-slate-200/50 dark:border-slate-700/80 px-6 py-4">
+        <div className={` bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-b
+        border-slate-200/50 dark:border-slate-700/80 px-6 py-4`}>
             <div className="flex items-center justify-between">
                 {/*left section*/}
                 <div className="flex items-center space-x-4">
@@ -35,7 +56,7 @@ export default function Header({sidebarCollapsed,onToggleSidebar}){
                 <div className='flex-1 max-w-md mx-8'>
                   <div className='relative '>
                     <Search className="w-4 h-4 absolute left-3 top-1/2 transform -translate-y-1/2
-                    text-slate-400 dark:"/>
+                    text-slate-400 dark:text-slate-100"/>
                     <input type="text" className='w-full pl-10 pr-4
                     py-2.5 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-800
                     dark:text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all' placeholder='Search anything' />
@@ -55,10 +76,12 @@ export default function Header({sidebarCollapsed,onToggleSidebar}){
                         <span className='text-sm font-medium'>New</span>
                     </button>
                     {/*Toggles*/}
-                    <button className='p-2.5 rounded-xl text-slate-600 dark:text-slate-300
-                    hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors'>
-                        <Sun className='w-5 h-5'/>
+                    <button onClick={handleButton} className={`p-2.5 rounded-xl text-slate-600 dark:text-slate-300
+                    hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors`}>
+                        {theme === 'light' ? <Moon className='w-5 h-5 text-black'/> : <Sun className='w-5 h-5 text-yellow-400'/>}
                     </button>
+                    
+
                     {/*Notification*/}
                     <button className='relative p-2.5 rounded-xl text-slate-800 dark:slate-300
                     hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors'>

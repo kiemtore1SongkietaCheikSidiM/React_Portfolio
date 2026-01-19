@@ -95,7 +95,7 @@ const menuItems = [
 
 
 
-function Sidebar({collapsed,ontoggle,currentPage,onPageChange}){
+function Sidebar({collapsed,ontoggle,currentPage,onPageChange,Theme}){
   const [expandedItems,setExpandedItems] = useState(new Set(["Analytics"]))
   const toggleExpanded = (itemid) =>{
     const newExpanded = new Set(expandedItems)
@@ -109,7 +109,7 @@ function Sidebar({collapsed,ontoggle,currentPage,onPageChange}){
 }
     return (
         <>
-        <div className={`${collapsed ?"w-20": "w-64" }
+        <div className={`${collapsed ?"w-20": "w-64"} 
         transition-all duration-300 ease-in-out bg-white/80 dark:bg-slate-900/80
         backdrop-blur-xl border-r border-slate-200/50 dark:border-slate-700/50 
         flex flex-col relative z-10`}>
